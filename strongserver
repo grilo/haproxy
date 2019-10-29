@@ -1,0 +1,7 @@
+frontend ssl1.1
+    mode tcp
+    bind *:11000 ssl force-tlsv11 crt mydomain.pem
+    default_backend strongservers
+
+backend strongservers
+    server server1 localhost:8000 ssl force-tlsv12 verify none

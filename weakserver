@@ -1,0 +1,7 @@
+frontend ssl1.2
+    mode tcp
+    bind *:10000 ssl force-tlsv12 crt mydomain.pem
+    default_backend weakservers
+
+backend weakservers
+    server server1 localhost:9000 ssl verify none force-tlsv11
